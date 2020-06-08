@@ -192,7 +192,8 @@ header {
     list-style: none;
 }
   
-.nav__item:hover {
+.nav__item:hover,
+.nav__item:focus {
     color: #000;
     background: #fff;
 }
@@ -209,7 +210,7 @@ header {
 }
 
 /* -------------- */
-.nav__link:before {
+.nav__link::before {
     content:'';
     position: absolute;
     top: 50%;
@@ -230,7 +231,8 @@ header {
     background: var(--clr-accent);
   }
   
-  .nav__link:hover:before {
+  .nav__link:hover::before,
+  .nav__link:focus::before {
     content: attr(data-text);
     opacity: 1;
     left: 50%;
@@ -257,6 +259,10 @@ header {
     z-index: 1000;
 }
 
+.nav-open .nav-toggle:focus {
+    outline-color: var(--clr-light);
+}
+
 .nav-open .nav {
     transform: translateX(0);
 }
@@ -266,12 +272,19 @@ header {
 }
 
 .nav-open .hamburger {
-    transform: rotate(.625turn)
+    transform: rotate(.625turn);
+    background: var(--clr-light);
+}
+
+.nav-open .hamburger {
+    outline-color: var(--clr-light);
 }
 
 .nav-open .hamburger::before {
     transform: rotate(90deg) translateX(-6px);
+    background: var(--clr-light);
 }
+
 
 .nav-open .hamburger::after {
     opacity: 0;
@@ -281,6 +294,7 @@ header {
     display: block;
     position: relative;
 }
+
 
 .hamburger,
 .hamburger::before,
